@@ -5,6 +5,7 @@ const commonSchema = z.object({
   APP_PORT: z.coerce.number(),
   SUPABASE_URL: z.string(),
   SUPABASE_ANON_KEY: z.string(),
+  JWT_SECRET: z.string(),
 });
 
 export const ENV = commonSchema;
