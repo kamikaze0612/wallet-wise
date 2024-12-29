@@ -5,6 +5,6 @@ export const Transaction = z.object({
   category_id: z.string(),
   id: z.string(),
   notes: z.string().nullable(),
-  created_at: z.string().datetime(),
-  updated_at: z.string().datetime(),
+  created_at: z.coerce.date(),
+  updated_at: z.coerce.date(),
 });

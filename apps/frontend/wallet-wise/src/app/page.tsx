@@ -1,6 +1,6 @@
 import { Button } from "ui";
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC = async () => {
   return (
     <div>
       Home

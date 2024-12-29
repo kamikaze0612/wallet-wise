@@ -1,5 +1,5 @@
 import { c } from "@/contract";
-import { Transaction } from "@/models/transactions";
+import { Transaction } from "@/models";
 
 export const transactionsContract = c.router({
   getTransactions: {
