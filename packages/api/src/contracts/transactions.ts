@@ -1,12 +1,12 @@
 import { c } from "@/contract";
-import { Transaction } from "@/models";
+import { TransactionsResponseBody } from "@/schemas/dtos";
 
 export const transactionsContract = c.router({
   getTransactions: {
     method: "GET",
     path: "/transactions",
     responses: {
-      200: Transaction.array(),
+      200: TransactionsResponseBody,
     },
   },
 });

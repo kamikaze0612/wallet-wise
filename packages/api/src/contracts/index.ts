@@ -1,11 +1,11 @@
 import { c } from "@/contract";
 
-import { authContract } from "./auth";
+import { categoriesContract } from "./categories";
 import { transactionsContract } from "./transactions";
 
 export const contract = c.router(
   {
-    auth: authContract,
+    categories: categoriesContract,
     transactions: transactionsContract,
   },
   {

@@ -4,16 +4,18 @@ import { LoggerModule } from "nestjs-pino";
 
 import { configuration } from "@/config/configuration";
 import { AuthModule } from "@/modules/auth/auth.module";
-import { SupabaseModule } from "@/modules/supabase/supabase.module";
+import { CategoriesModule } from "@/modules/categories/categories.module";
+import { DatabaseModule } from "@/modules/database/database.module";
 import { TransactionsModule } from "@/modules/transactions/transactions.module";
 
 import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
 
 @Module({
   imports: [
-    AuthModule,
+    // AuthModule,
+    CategoriesModule,
     ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
+    DatabaseModule,
     LoggerModule.forRoot({
       pinoHttp: {
         transport: {
@@ -24,10 +26,8 @@ import { AppService } from "./app.service";
         },
       },
     }),
-    SupabaseModule,
     TransactionsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
