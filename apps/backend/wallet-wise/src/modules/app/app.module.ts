@@ -12,7 +12,7 @@ import { AppController } from "./app.controller";
 
 @Module({
   imports: [
-    // AuthModule,
+    AuthModule,
     CategoriesModule,
     ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
     DatabaseModule,
