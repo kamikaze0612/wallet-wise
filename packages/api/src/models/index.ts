@@ -1,2 +1,2 @@
-export * from "./category";
-export * from "./transaction";
+export * from "./categories";
+export * from "./transactions";
