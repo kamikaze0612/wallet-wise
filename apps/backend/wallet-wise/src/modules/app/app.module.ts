@@ -8,8 +8,6 @@ import { CategoriesModule } from "@/modules/categories/categories.module";
 import { DatabaseModule } from "@/modules/database/database.module";
 import { TransactionsModule } from "@/modules/transactions/transactions.module";
 
-import { AppController } from "./app.controller";
-
 @Module({
   imports: [
     AuthModule,
@@ -28,6 +26,5 @@ import { AppController } from "./app.controller";
     }),
     TransactionsModule,
   ],
-  controllers: [AppController],
 })
 export class AppModule {}

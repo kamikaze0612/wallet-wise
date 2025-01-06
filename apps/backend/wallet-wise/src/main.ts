@@ -19,9 +19,7 @@ async function bootstrap() {
   app.useLogger(logger);
 
   // CORS
-  app.enableCors({
-    origin: "http://localhost:3000",
-  });
+  app.enableCors();
 
   const port = configService.get<number>("app.port")!;
   await app.listen(port);
