@@ -1,6 +1,15 @@
 import { z } from "zod";
 
-import { Category } from "@/models";
+import { CategoryModel } from "@/models";
 
-export const CategoriesResponseBody = Category.array();
+export const CreateCategoryRequestBody = CategoryModel.omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+export type CreateCategoryRequestBody = z.infer<
+  typeof CreateCategoryRequestBody
+>;
+
+export const CategoriesResponseBody = CategoryModel.array();
 export type CategoriesResponseBody = z.infer<typeof CategoriesResponseBody>;

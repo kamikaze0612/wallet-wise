@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { Transaction } from "@/models";
+import { TransactionModel } from "@/models";
 
-export const TransactionsResponseBody = Transaction.array();
+export const TransactionsResponseBody = TransactionModel.array();
 export type TransactionsResponseBody = z.infer<typeof TransactionsResponseBody>;
