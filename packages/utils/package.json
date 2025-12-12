@@ -1,0 +1,26 @@
+{
+  "name": "utils",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsup"
+  },
+  "author": "Buyantogtokh B.",
+  "license": "ISC",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.4.0",
+    "tsup": "^8.5.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^25.0.1",
+    "typescript": "^5.9.3"
+  }
+}
