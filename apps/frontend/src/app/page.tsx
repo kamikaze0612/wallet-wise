@@ -1,4 +1,10 @@
+import { Test } from "./components/test";
+
 const HomePage: React.FC = () => {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <Test />
+    </div>
+  );
 };
 export default HomePage;
