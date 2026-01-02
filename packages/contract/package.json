@@ -1,0 +1,27 @@
+{
+  "name": "contract",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@ts-rest/core": "3.53.0-rc.1",
+    "database": "workspace:*",
+    "drizzle-zod": "^0.8.3",
+    "zod": "^4.3.4"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}

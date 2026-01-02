@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: wallet_wise_postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: wallet_wise
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - wallet_wise_network
+    restart: unless-stopped
+
+networks:
+  wallet_wise_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
