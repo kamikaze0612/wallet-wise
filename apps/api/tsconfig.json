@@ -1,7 +1,9 @@
 {
   "extends": "@repo/typescript-config/nestjs.json",
   "compilerOptions": {
+    "module": "NodeNext",
     "outDir": "./dist",
+    "strict": true,
     "baseUrl": "./",
     "paths": {
       "@/interceptors/*": ["./src/common/interceptors/*"],
