@@ -8,6 +8,10 @@ export const configuration = (overrides?: Partial<Config>) => {
       env: config.APP_ENV,
       port: config.APP_PORT,
     },
+    auth0: {
+      audience: config.AUTH0_AUDIENCE,
+      domain: config.AUTH0_DOMAIN,
+    },
     db: {
       url: config.DATABASE_URL,
     },

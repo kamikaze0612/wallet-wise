@@ -10,14 +10,14 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
   },
   "keywords": [],
   "dependencies": {
-    "@ts-rest/core": "3.53.0-rc.1",
     "database": "workspace:*",
+    "drizzle-orm": "^0.45.1",
     "drizzle-zod": "^0.8.3",
-    "zod": "^4.3.4"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

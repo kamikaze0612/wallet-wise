@@ -1,7 +1,7 @@
 {
+  "extends": "./base.json",
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Node 22",
-  "extends": "./base.json",
   "compilerOptions": {
     "lib": ["es2023"],
     "module": "NodeNext",

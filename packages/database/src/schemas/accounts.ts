@@ -1,22 +1,22 @@
-import { relations } from "drizzle-orm";
-import { numeric, pgEnum, pgTable, serial, varchar } from "drizzle-orm/pg-core";
+import { relations } from 'drizzle-orm';
+import { numeric, pgEnum, pgTable, serial, varchar } from 'drizzle-orm/pg-core';
 
-import { savingGoals } from "./saving-goals";
-import { timestamps } from "./timestamps";
-import { transactions } from "./transactions";
-import { users } from "./users";
+import { savingGoals } from './saving-goals';
+import { timestamps } from './timestamps';
+import { transactions } from './transactions';
+import { users } from './users';
 
-export const currencyEnum = pgEnum("currency", ["usd", "jpy", "mnt"]);
+export const currencyEnum = pgEnum('currency', ['usd', 'jpy', 'mnt']);
 
-export const accounts = pgTable("accounts", {
-  id: serial("id").primaryKey(),
+export const accounts = pgTable('accounts', {
+  id: serial('id').primaryKey(),
   currency: currencyEnum().notNull(),
-  openingBalance: numeric("opening_balance", { precision: 14, scale: 2 })
+  openingBalance: numeric('opening_balance', { precision: 14, scale: 2 })
     .notNull()
-    .default("0"),
-  userId: varchar("user_id", { length: 255 })
+    .default('0'),
+  userId: varchar('user_id', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
+    .references(() => users.id, { onDelete: 'cascade' }),
   ...timestamps,
 });
 
@@ -25,6 +25,11 @@ export const accountsRelations = relations(accounts, ({ one, many }) => ({
     fields: [accounts.userId],
     references: [users.id],
   }),
-  transactions: many(transactions),
+  inflowTransactions: many(transactions, {
+    relationName: 'transactions_accounts_id_source_fk',
+  }),
+  outflowTransactions: many(transactions, {
+    relationName: 'transactions_accounts_id_target_fk',
+  }),
   savingGoals: many(savingGoals),
 }));

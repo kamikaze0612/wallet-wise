@@ -1,18 +1,18 @@
-import { relations } from "drizzle-orm";
-import { pgTable, serial, numeric, integer } from "drizzle-orm/pg-core";
+import { relations } from 'drizzle-orm';
+import { integer, numeric, pgTable, serial } from 'drizzle-orm/pg-core';
 
-import { categories } from "./categories";
-import { transactions } from "./transactions";
+import { categories } from './categories';
+import { transactions } from './transactions';
 
-export const transactionSplits = pgTable("transaction_splits", {
-  id: serial("id").primaryKey(),
-  transactionId: integer("transaction_id")
-    .references(() => transactions.id, { onDelete: "cascade" })
+export const transactionSplits = pgTable('transaction_splits', {
+  id: serial('id').primaryKey(),
+  transactionId: integer('transaction_id')
+    .references(() => transactions.id, { onDelete: 'cascade' })
     .notNull(),
-  categoryId: integer("category_id")
-    .references(() => categories.id, { onDelete: "cascade" })
+  categoryId: integer('category_id')
+    .references(() => categories.id, { onDelete: 'cascade' })
     .notNull(),
-  amount: numeric("amount", { precision: 14, scale: 2 }),
+  amount: numeric('amount', { precision: 14, scale: 2 }),
 });
 
 export const transactionSplitsRelations = relations(
@@ -26,5 +26,5 @@ export const transactionSplitsRelations = relations(
       fields: [transactionSplits.categoryId],
       references: [categories.id],
     }),
-  })
+  }),
 );

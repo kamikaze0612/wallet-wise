@@ -1,36 +1,36 @@
-import { relations } from "drizzle-orm";
+import { relations } from 'drizzle-orm';
 import {
-  pgTable,
-  serial,
+  date,
   integer,
   numeric,
   pgEnum,
+  pgTable,
+  serial,
   varchar,
-  date,
-} from "drizzle-orm/pg-core";
+} from 'drizzle-orm/pg-core';
 
-import { categories } from "./categories";
-import { timestamps } from "./timestamps";
-import { users } from "./users";
+import { categories } from './categories';
+import { timestamps } from './timestamps';
+import { users } from './users';
 
-export const budgetPeriodEnum = pgEnum("budget_period", [
-  "weekly",
-  "monthly",
-  "yearly",
+export const budgetPeriodEnum = pgEnum('budget_period', [
+  'weekly',
+  'monthly',
+  'yearly',
 ]);
 
-export const budgets = pgTable("budgets", {
-  id: serial("id").primaryKey(),
-  amount: numeric("amount", { precision: 14, scale: 2 }).notNull(),
+export const budgets = pgTable('budgets', {
+  id: serial('id').primaryKey(),
+  amount: numeric('amount', { precision: 14, scale: 2 }).notNull(),
   period: budgetPeriodEnum().notNull(),
-  categoryId: integer("category_id")
+  categoryId: integer('category_id')
     .notNull()
-    .references(() => categories.id, { onDelete: "cascade" }),
-  userId: varchar("user_id", { length: 255 })
+    .references(() => categories.id, { onDelete: 'cascade' }),
+  userId: varchar('user_id', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: "cascade" }),
-  startDate: date("start_date", { mode: "date" }).notNull(),
-  endDate: date("end_date", { mode: "date" }).notNull(),
+    .references(() => users.id, { onDelete: 'cascade' }),
+  startDate: date('start_date', { mode: 'date' }).notNull(),
+  endDate: date('end_date', { mode: 'date' }).notNull(),
   ...timestamps,
 });
 

@@ -1,4 +1,6 @@
-import { Controller, Get, NotImplementedException } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+
+import { JwtAuthGuard } from '@/common/guards/jwt_auth.guard';
 
 import { TransactionsService } from './transactions.service';
 
@@ -6,11 +8,12 @@ import { TransactionsService } from './transactions.service';
 export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get('transactions')
-  list() {
-    throw new NotImplementedException('NOT_IMPLEMENTED', {
-      cause: 'Endpoint not implemented',
-      description: 'This endpoint is not implemented yet',
-    });
+  listTransactions() {
+    return {
+      status: 'success',
+      data: [],
+    };
   }
 }
